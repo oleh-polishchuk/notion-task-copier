@@ -7,15 +7,15 @@ function getSource($document) {
     var id,
         title;
 
-    var idElement = document.querySelector(".layout h1");
-    var titleElement = Array.from(document.querySelectorAll(".layout-content [role='row']")).find((elem) => elem.innerText.includes("ID"))
+    var idElement = Array.from(document.querySelectorAll(".layout-content [role='row']")).find((elem) => elem.innerText.includes("ID"))
+    var titleElement = document.querySelector(".layout h1");
 
-    var $keyFromIssueList = idElement ? idElement.innerText : null;
-    var $valFromIssueList = titleElement ? titleElement.innerText.split("\n")[1] : null;
+    var idValue = idElement ? idElement.innerText.split("\n")[1] : null;
+    var titleValue = titleElement ? titleElement.innerText : null;
 
-    if ($keyFromIssueList && $valFromIssueList) {
-        id = $keyFromIssueList;
-        title = $valFromIssueList;
+    if (idValue && titleValue) {
+        id = idValue;
+        title = titleValue;
     }
 
     var html;
